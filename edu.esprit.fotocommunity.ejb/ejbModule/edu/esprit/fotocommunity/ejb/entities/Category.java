@@ -3,6 +3,7 @@ package edu.esprit.fotocommunity.ejb.entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,8 +20,8 @@ public class Category implements Serializable {
 	@Id
 	private Integer ID;
 	private String NameCategory;
-	@OneToMany
-	private List<Photo> listPhotos;
+	@OneToMany (mappedBy = "Category")
+	private List<Photo> listPhotos=new ArrayList<Photo>();
 	private static final long serialVersionUID = 1L;
 
 	public Category() {

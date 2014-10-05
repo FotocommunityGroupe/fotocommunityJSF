@@ -22,6 +22,8 @@ public class AdminManager implements Serializable {
 	private String Role;
 	private String TEL;
 	private String CITY;
+	private String password;
+	private String username;
 	private static final long serialVersionUID = 1L;
 
 	public AdminManager() {
@@ -75,6 +77,18 @@ public class AdminManager implements Serializable {
 
 	public void setCITY(String CITY) {
 		this.CITY = CITY;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
    
 }

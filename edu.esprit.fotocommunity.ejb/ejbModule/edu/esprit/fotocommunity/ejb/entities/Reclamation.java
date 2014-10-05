@@ -16,7 +16,8 @@ public class Reclamation implements Serializable {
 	   
 	@Id
 	private Integer IdReclamation;
-	private Integer IdUser;
+	@ManyToOne
+	private BasicUser User;
 	private String Content;
 	private static final long serialVersionUID = 1L;
 
@@ -30,12 +31,12 @@ public class Reclamation implements Serializable {
 	public void setIdReclamation(Integer IdReclamation) {
 		this.IdReclamation = IdReclamation;
 	}   
-	public Integer getIdUser() {
-		return this.IdUser;
+	public BasicUser getUser() {
+		return this.User;
 	}
 
-	public void setIdUser(Integer IdUser) {
-		this.IdUser = IdUser;
+	public void setUser(BasicUser User) {
+		this.User = User;
 	}   
 	public String getContent() {
 		return this.Content;

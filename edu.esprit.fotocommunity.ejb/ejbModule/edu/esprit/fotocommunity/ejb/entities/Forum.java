@@ -3,6 +3,9 @@ package edu.esprit.fotocommunity.ejb.entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -18,6 +21,8 @@ public class Forum implements Serializable {
 	private Integer ID;
 	private String SUBJECT;
 	private String TITLE;
+	@OneToMany(mappedBy ="forum")
+	private List<ForumSubject> listSujet= new ArrayList<ForumSubject>();
 	private static final long serialVersionUID = 1L;
 
 	public Forum() {
