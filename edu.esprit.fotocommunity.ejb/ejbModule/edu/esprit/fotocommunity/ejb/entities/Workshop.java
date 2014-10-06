@@ -20,7 +20,8 @@ public class Workshop implements Serializable {
 	private String PLACE;
 	private String DATE;
 	private String HOUR;
-	private String LEADER;
+	@ManyToOne
+	private Professional leader;
 	private String DESCRIPTION;
 	private static final long serialVersionUID = 1L;
 
@@ -62,12 +63,12 @@ public class Workshop implements Serializable {
 	public void setHOUR(String HOUR) {
 		this.HOUR = HOUR;
 	}   
-	public String getLEADER() {
-		return this.LEADER;
+	public Professional getLEADER() {
+		return this.leader;
 	}
 
-	public void setLEADER(String LEADER) {
-		this.LEADER = LEADER;
+	public void setLEADER(Professional LEADER) {
+		this.leader = LEADER;
 	}   
 	public String getDESCRIPTION() {
 		return this.DESCRIPTION;

@@ -16,7 +16,8 @@ public class ForumSubject implements Serializable {
 	@Id
 	private Integer ID;
 	private String DESCRIPTION;
-	private int IdForum;
+	@ManyToOne
+	private Forum forum;
 	private String CONTENT;
 	private static final long serialVersionUID = 1L;
 
@@ -37,12 +38,12 @@ public class ForumSubject implements Serializable {
 	public void setDESCRIPTION(String DESCRIPTION) {
 		this.DESCRIPTION = DESCRIPTION;
 	}   
-	public int getIdForum() {
-		return this.IdForum;
+	public Forum getForum() {
+		return this.forum;
 	}
 
-	public void setIdForum(int IdForum) {
-		this.IdForum = IdForum;
+	public void setForum(Forum forum) {
+		this.forum = forum;
 	}   
 	public String getCONTENT() {
 		return this.CONTENT;

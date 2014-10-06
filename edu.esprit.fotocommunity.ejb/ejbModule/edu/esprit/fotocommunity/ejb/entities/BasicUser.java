@@ -3,6 +3,9 @@ package edu.esprit.fotocommunity.ejb.entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -11,7 +14,7 @@ import javax.persistence.*;
  */
 @Entity(name="tab_users")
 
-public class User implements Serializable {
+public class BasicUser implements Serializable {
 
 	   
 	@Id
@@ -20,14 +23,16 @@ public class User implements Serializable {
 	private String NAME;
 	private String EMAIL;
 	private String USER_NAME;
+	private String password;
 	private Integer AGE;
 	private String SEXE;
-	private String CARD_NUMBER;
-	private Integer NB_PURCHACED_PHOTOS;
-	private String TYPE_ACCOUNT;
+	@OneToMany(mappedBy = "user")
+	private List<Comment> comments=new ArrayList<Comment>();
+	@OneToMany(mappedBy ="User")
+	private List<Reclamation> reclamations=new ArrayList<Reclamation>();
 	private static final long serialVersionUID = 1L;
 
-	public User() {
+	public BasicUser() {
 		super();
 	}   
 	public Integer getID_USER() {
@@ -71,27 +76,13 @@ public class User implements Serializable {
 
 	public void setSEXE(String SEXE) {
 		this.SEXE = SEXE;
-	}   
-	public String getCARD_NUMBER() {
-		return this.CARD_NUMBER;
+	}    
+	
+	public String getPassword() {
+		return password;
 	}
-
-	public void setCARD_NUMBER(String CARD_NUMBER) {
-		this.CARD_NUMBER = CARD_NUMBER;
-	}   
-	public Integer getNB_PURCHACED_PHOTOS() {
-		return this.NB_PURCHACED_PHOTOS;
-	}
-
-	public void setNB_PURCHACED_PHOTOS(Integer NB_PURCHACED_PHOTOS) {
-		this.NB_PURCHACED_PHOTOS = NB_PURCHACED_PHOTOS;
-	}   
-	public String getTYPE_ACCOUNT() {
-		return this.TYPE_ACCOUNT;
-	}
-
-	public void setTYPE_ACCOUNT(String TYPE_ACCOUNT) {
-		this.TYPE_ACCOUNT = TYPE_ACCOUNT;
+	public void setPassword(String password) {
+		this.password = password;
 	}
    
 }

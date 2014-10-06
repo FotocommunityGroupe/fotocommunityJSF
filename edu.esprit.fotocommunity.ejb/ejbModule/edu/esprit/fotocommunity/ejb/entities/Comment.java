@@ -17,7 +17,8 @@ public class Comment implements Serializable {
 	@Id
 	private Integer ID;
 	private String CONTENT;
-	private Integer IdUser;
+	@ManyToOne
+	private BasicUser user;
 	private static final long serialVersionUID = 1L;
 
 	public Comment() {
@@ -37,12 +38,12 @@ public class Comment implements Serializable {
 	public void setCONTENT(String CONTENT) {
 		this.CONTENT = CONTENT;
 	}   
-	public Integer getIdUser() {
-		return this.IdUser;
+	public BasicUser getIdUser() {
+		return this.user;
 	}
 
-	public void setIdUser(Integer IdUser) {
-		this.IdUser = IdUser;
+	public void setIdUser(BasicUser user) {
+		this.user = user;
 	}
    
 }

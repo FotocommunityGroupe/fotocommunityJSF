@@ -21,6 +21,8 @@ public class Event implements Serializable {
 	private String TOPIC;
 	private Integer NbSpeakers;
 	private Integer NbPlaces;
+	@ManyToOne
+	private Professional organizer;
 	private static final long serialVersionUID = 1L;
 
 	public Event() {

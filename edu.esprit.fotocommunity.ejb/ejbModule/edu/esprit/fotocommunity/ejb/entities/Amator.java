@@ -3,6 +3,9 @@ package edu.esprit.fotocommunity.ejb.entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -11,7 +14,7 @@ import javax.persistence.*;
  */
 @Entity(name="tab_team_work_members")
 
-public class TeamWorkMember implements Serializable {
+public class Amator implements Serializable {
 
 	   
 	@Id
@@ -19,12 +22,15 @@ public class TeamWorkMember implements Serializable {
 	private String NAME;
 	private String EMAIL;
 	private Integer NbPhotos;
-	private String WorkType;
+	private String username;
+	private String password;
 	private Integer AGE;
 	private String SEXE;
+	@OneToMany(mappedBy = "amateur" )
+	private List<Photo> photos=new ArrayList<Photo>();
 	private static final long serialVersionUID = 1L;
 
-	public TeamWorkMember() {
+	public Amator() {
 		super();
 	}   
 	public Integer getID() {
@@ -55,13 +61,7 @@ public class TeamWorkMember implements Serializable {
 	public void setNbPhotos(Integer NbPhotos) {
 		this.NbPhotos = NbPhotos;
 	}   
-	public String getWorkType() {
-		return this.WorkType;
-	}
-
-	public void setWorkType(String WorkType) {
-		this.WorkType = WorkType;
-	}
+	
 	public Integer getAGE() {
 		return this.AGE;
 	}
@@ -75,6 +75,18 @@ public class TeamWorkMember implements Serializable {
 
 	public void setSEXE(String SEXE) {
 		this.SEXE = SEXE;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}   
    
 }

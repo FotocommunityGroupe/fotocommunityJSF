@@ -18,12 +18,14 @@ public class Photo implements Serializable {
 	@Id
 	private Integer ID;
 	// Clé etrangère
-	private Integer IdOwner;
+	
 	private String DESCRIPTION;
 	private Double PRICE;
 	// clé etrangère
 	@ManyToOne
 	private Category Category;
+	@ManyToOne
+	private Amator amateur;
 	private Double SIZE;
 	private static final long serialVersionUID = 1L;
 
@@ -37,13 +39,13 @@ public class Photo implements Serializable {
 	public void setID(Integer ID) {
 		this.ID = ID;
 	}   
-	public Integer getIdOwner() {
-		return this.IdOwner;
-	}
+//	public Integer getIdOwner() {
+//		return this.IdOwner;
+//	}
 
-	public void setIdOwner(Integer IdOwner) {
-		this.IdOwner = IdOwner;
-	}   
+//	public void setIdOwner(Integer IdOwner) {
+//		this.IdOwner = IdOwner;
+//	}   
 	public String getDESCRIPTION() {
 		return this.DESCRIPTION;
 	}
