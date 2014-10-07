@@ -20,7 +20,7 @@ public class BasicUser implements Serializable {
 	@Id
 	private Integer ID_USER;
 	// un utilisateur peut acheter plusieurs photos et une photo peut etre achetée par un ou plusieurs users
-	private String NAME;
+	private String NAME_Basic;
 	private String EMAIL;
 	private String USER_NAME;
 	private String password;
@@ -43,11 +43,11 @@ public class BasicUser implements Serializable {
 		this.ID_USER = ID_USER;
 	}   
 	public String getNAME() {
-		return this.NAME;
+		return this.NAME_Basic;
 	}
 
 	public void setNAME(String NAME) {
-		this.NAME = NAME;
+		this.NAME_Basic = NAME;
 	}   
 	public String getEMAIL() {
 		return this.EMAIL;
