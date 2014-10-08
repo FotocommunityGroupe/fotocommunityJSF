@@ -18,6 +18,7 @@ public class Category implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
 	private String NameCategory;
 	@OneToMany (mappedBy = "Category")

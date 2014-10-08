@@ -18,6 +18,7 @@ public class BasicUser implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID_USER;
 	// un utilisateur peut acheter plusieurs photos et une photo peut etre achetée par un ou plusieurs users
 	private String NAME;

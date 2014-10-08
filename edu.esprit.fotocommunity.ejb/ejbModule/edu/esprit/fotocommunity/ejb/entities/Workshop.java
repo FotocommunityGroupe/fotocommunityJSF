@@ -3,6 +3,7 @@ package edu.esprit.fotocommunity.ejb.entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+
 import javax.persistence.*;
 
 /**
@@ -15,6 +16,7 @@ public class Workshop implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
 	private String SUBJECT;
 	private String PLACE;

@@ -3,6 +3,7 @@ package edu.esprit.fotocommunity.ejb.entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+
 import javax.persistence.*;
 
 /**
@@ -15,6 +16,7 @@ public class BadWordList implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
 	private String WORD;
 	private static final long serialVersionUID = 1L;

@@ -18,6 +18,7 @@ public class Amator implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
 	private String NAME;
 	private String EMAIL;
