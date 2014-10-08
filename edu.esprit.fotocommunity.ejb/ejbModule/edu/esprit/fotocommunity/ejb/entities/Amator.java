@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -25,7 +26,7 @@ public class Amator implements Serializable {
 	private Integer NbPhotos;
 	private String username;
 	private String password;
-	private Integer AGE;
+	private Date dateNaiss;
 	private String SEXE;
 	@OneToMany(mappedBy = "amateur" )
 	private List<Photo> photos=new ArrayList<Photo>();
@@ -63,12 +64,12 @@ public class Amator implements Serializable {
 		this.NbPhotos = NbPhotos;
 	}   
 	
-	public Integer getAGE() {
-		return this.AGE;
+	@Temporal(TemporalType.DATE)
+	public Date getDateNaiss() {
+		return dateNaiss;
 	}
-
-	public void setAGE(Integer AGE) {
-		this.AGE = AGE;
+	public void setDateNaiss(Date dateNaiss) {
+		this.dateNaiss = dateNaiss;
 	}
 	public String getSEXE() {
 		return this.SEXE;

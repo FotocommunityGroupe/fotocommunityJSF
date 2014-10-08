@@ -3,6 +3,7 @@ package edu.esprit.fotocommunity.ejb.entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -20,8 +21,8 @@ public class Workshop implements Serializable {
 	private Integer ID;
 	private String SUBJECT;
 	private String PLACE;
-	private String DATE;
-	private String HOUR;
+	private Date date;
+	
 	@ManyToOne
 	private Professional leader;
 	private String DESCRIPTION;
@@ -51,20 +52,13 @@ public class Workshop implements Serializable {
 	public void setPLACE(String PLACE) {
 		this.PLACE = PLACE;
 	}   
-	public String getDATE() {
-		return this.DATE;
+	@Temporal(TemporalType.TIME)   
+	public Date getDate() {
+		return date;
 	}
-
-	public void setDATE(String DATE) {
-		this.DATE = DATE;
-	}   
-	public String getHOUR() {
-		return this.HOUR;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-
-	public void setHOUR(String HOUR) {
-		this.HOUR = HOUR;
-	}   
 	public Professional getLEADER() {
 		return this.leader;
 	}
