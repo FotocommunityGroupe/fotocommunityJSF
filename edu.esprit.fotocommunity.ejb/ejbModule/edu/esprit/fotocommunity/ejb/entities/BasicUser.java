@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -18,13 +19,14 @@ public class BasicUser implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID_USER;
 	// un utilisateur peut acheter plusieurs photos et une photo peut etre achetée par un ou plusieurs users
 	private String NAME;
 	private String EMAIL;
 	private String USER_NAME;
 	private String password;
-	private Integer AGE;
+	private Date DateDeNaissance;
 	private String SEXE;
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments=new ArrayList<Comment>();
@@ -63,13 +65,14 @@ public class BasicUser implements Serializable {
 	public void setUSER_NAME(String USER_NAME) {
 		this.USER_NAME = USER_NAME;
 	}   
-	public Integer getAGE() {
-		return this.AGE;
+	
+	@Temporal(TemporalType.DATE)
+	public Date getDateDeNaissance() {
+		return DateDeNaissance;
 	}
-
-	public void setAGE(Integer AGE) {
-		this.AGE = AGE;
-	}   
+	public void setDateDeNaissance(Date dateDeNaissance) {
+		DateDeNaissance = dateDeNaissance;
+	}
 	public String getSEXE() {
 		return this.SEXE;
 	}

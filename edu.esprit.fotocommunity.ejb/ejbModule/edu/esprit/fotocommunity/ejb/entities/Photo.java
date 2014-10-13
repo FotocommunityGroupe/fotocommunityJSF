@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+
 import javax.persistence.*;
 
 /**
@@ -16,6 +17,7 @@ public class Photo implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
 	// Clé etrangère
 	

@@ -18,6 +18,7 @@ public class Forum implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
 	private String SUBJECT;
 	private String TITLE;
