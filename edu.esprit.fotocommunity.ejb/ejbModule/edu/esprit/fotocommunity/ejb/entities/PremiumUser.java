@@ -14,7 +14,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@NamedQuery(name="test1",query="select a from PremiumUser a")
 public class PremiumUser extends BasicUser implements Serializable {
 
 	

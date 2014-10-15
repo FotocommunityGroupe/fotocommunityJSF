@@ -10,8 +10,10 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Adminstrator
  *
  */
-@Entity(name="tab_administrators")
-
+@Entity
+@DiscriminatorValue(value="AM")
+@NamedQuery(name="test3",query="select a from AdminManager a")
+@Table(name="tab_administrators")
 public class AdminManager implements Serializable {
 
 	   

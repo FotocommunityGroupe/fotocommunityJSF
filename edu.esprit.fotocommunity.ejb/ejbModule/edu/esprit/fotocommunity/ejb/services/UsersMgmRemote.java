@@ -18,9 +18,10 @@ public interface UsersMgmRemote {
 	public void deleteWorldUser(WolrdUser U );
 	public BasicUser findUser(int idUser);
 	public List<BasicUser> findAllUsers();
+	public List<PremiumUser> findAllUsers1();
+	public List<WolrdUser> findAllUsers2();
 	public void updateBasicUser(BasicUser U);
 	public void updatePremiumUser(PremiumUser U);
 	public void updateWorldUser(WolrdUser U);
-	
 
 }

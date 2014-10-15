@@ -13,13 +13,17 @@ import javax.persistence.*;
  * Entity implementation class for Entity: User
  *
  */
-@Entity(name="tab_users")
+@Entity
+@NamedQuery(name="test", query="select a from BasicUser a")
 
+@Table(name="tab_users")
 public class BasicUser implements Serializable {
 
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	
 	private Integer ID_USER;
 	// un utilisateur peut acheter plusieurs photos et une photo peut etre achetée par un ou plusieurs users
 	private String NAME;
@@ -32,6 +36,8 @@ public class BasicUser implements Serializable {
 	private List<Comment> comments=new ArrayList<Comment>();
 	@OneToMany(mappedBy ="User")
 	private List<Reclamation> reclamations=new ArrayList<Reclamation>();
+	@OneToMany(mappedBy="user")
+	private List<Alert> alerts=new ArrayList<Alert>();
 	private static final long serialVersionUID = 1L;
 
 	public BasicUser() {
@@ -87,5 +93,5 @@ public class BasicUser implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-   
+	
 }

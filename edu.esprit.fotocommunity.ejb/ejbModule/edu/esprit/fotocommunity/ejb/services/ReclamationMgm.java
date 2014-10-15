@@ -9,12 +9,15 @@ import javax.persistence.PersistenceContext;
 import edu.esprit.fotocommunity.ejb.entities.Comment;
 import edu.esprit.fotocommunity.ejb.entities.Event;
 import edu.esprit.fotocommunity.ejb.entities.Photo;
+import edu.esprit.fotocommunity.ejb.entities.Reclamation;
 
 /**
  * Session Bean implementation class Reclamation
  */
-@Stateless
-public class Reclamation implements ReclamationRemote {
+@Stateless 
+// asmaa ca cause pas de probleme fel jtable w business delegate ? 
+// to nchofo
+public class ReclamationMgm implements ReclamationRemote {
 
     /**
      * Default constructor. 
@@ -24,39 +27,44 @@ public class Reclamation implements ReclamationRemote {
 	@PersistenceContext
 	EntityManager em;
 
-    public Reclamation() {
+    public ReclamationMgm() {
         // TODO Auto-generated constructor stub
     }
 
 	@Override
 	public void addComplaint(
-			edu.esprit.fotocommunity.ejb.entities.Reclamation rec) {
+			Reclamation rec) {
 
 		em.persist(rec);
 		
 		
-	}
+	}// barra testi behii okoood hounni 
 
 	@Override
 	public void deleteComplaint(
-			edu.esprit.fotocommunity.ejb.entities.Reclamation rec) {
-		em.remove(em.find(Event.class, rec.getIdReclamation()));	
+			Reclamation rec) {
+		
+				em.remove(em.find(Reclamation.class, rec.getIdReclamation()));	
 		
 	}
 
 
 
 	@Override
-	public List<edu.esprit.fotocommunity.ejb.entities.Reclamation> findAllReclamation() {
-		return (List<edu.esprit.fotocommunity.ejb.entities.Reclamation>)em.createNamedQuery("ListOfComplaints").getResultList();
+	public List<Reclamation> findAllReclamation() {
+		
+	
+		return (List<Reclamation>)em.createNamedQuery("reclamations").getResultList();
 	}
-
+	
 	@Override
-	public edu.esprit.fotocommunity.ejb.entities.Reclamation findReclamation(
+	public Reclamation  findReclamation(
 			int IdReclamation) {
-		// TODO Auto-generated method stub
-		return null;
+ 
+		return em.find(Reclamation.class, IdReclamation);
 	}
+	
+
 
 }
 
