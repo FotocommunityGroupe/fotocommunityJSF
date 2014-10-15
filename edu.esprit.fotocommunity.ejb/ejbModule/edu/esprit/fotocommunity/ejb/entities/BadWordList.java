@@ -10,8 +10,9 @@ import javax.persistence.*;
  * Entity implementation class for Entity: BadWordList
  *
  */
-@Entity(name="tab_badwordslist")
-
+@Entity
+@NamedQuery(name="badwordTest",query="select a from BadWordList a")
+@Table(name="tab_badwordslist")
 public class BadWordList implements Serializable {
 
 	   
