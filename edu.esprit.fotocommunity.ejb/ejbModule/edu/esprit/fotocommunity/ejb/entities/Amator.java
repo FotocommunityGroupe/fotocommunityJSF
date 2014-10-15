@@ -14,6 +14,7 @@ import javax.persistence.*;
  *
  */
 @Entity(name="tab_team_work_members")
+@DiscriminatorValue(value="Amator")
 
 public class Amator implements Serializable {
 
@@ -30,6 +31,8 @@ public class Amator implements Serializable {
 	private String SEXE;
 	@OneToMany(mappedBy = "amateur" )
 	private List<Photo> photos=new ArrayList<Photo>();
+	@OneToMany(mappedBy = "amateur" )
+	private List<Reclamation> reclam=new ArrayList<Reclamation>();
 	private static final long serialVersionUID = 1L;
 
 	public Amator() {

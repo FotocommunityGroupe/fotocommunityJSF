@@ -10,19 +10,31 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Reclamation
  *
  */
-@Entity(name="tab_reclation")
 
+
+@Entity
+@NamedQuery(name="reclamations",query="select c from Reclamation c")
+@Table(name="tab_reclamation")
 public class Reclamation implements Serializable {
 
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer IdReclamation;
 	@ManyToOne
 	private BasicUser User;
+	@ManyToOne
+	private Amator amateur;
 	private String Content;
 	private static final long serialVersionUID = 1L;
 
+	public Amator getAmateur() {
+		return amateur;
+	}
+	public void setAmateur(Amator amateur) {
+		this.amateur = amateur;
+	}
 	public Reclamation() {
 		super();
 	}   

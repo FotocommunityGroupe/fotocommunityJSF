@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
+import edu.esprit.fotocommunity.ejb.entities.AdminManager;
 import edu.esprit.fotocommunity.ejb.entities.BasicUser;
 import edu.esprit.fotocommunity.ejb.entities.PremiumUser;
 import edu.esprit.fotocommunity.ejb.entities.WolrdUser;
@@ -39,7 +42,7 @@ public class UsersMgm implements UsersMgmRemote {
 	@Override
 	public List<BasicUser> findAllUsers() {
 		// TODO Auto-generated method stub
-		return (List<BasicUser>) em.createNamedQuery("findAllUsers").getResultList();
+		return (List<BasicUser>) em.createNamedQuery("test").getResultList();
 	}
 
 	@Override
@@ -119,5 +122,32 @@ public class UsersMgm implements UsersMgmRemote {
 		// TODO Auto-generated method stub
 		em.merge(U);
 	}
+
+
+
+
+	@Override
+	public List<PremiumUser> findAllUsers1() {
+		
+		return (List<PremiumUser>)em.createQuery("test1").getResultList();
+	}
+
+
+
+
+	@Override
+	public List<WolrdUser> findAllUsers2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+			
+		
+		
+	
 
 }

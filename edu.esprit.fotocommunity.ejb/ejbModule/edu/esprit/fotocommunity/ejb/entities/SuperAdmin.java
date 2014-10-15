@@ -10,7 +10,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@DiscriminatorValue(value="SA")
 public class SuperAdmin extends AdminManager implements Serializable {
 
 	
