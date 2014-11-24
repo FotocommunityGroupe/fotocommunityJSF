@@ -23,5 +23,7 @@ public interface UsersMgmRemote {
 	public void updateBasicUser(BasicUser U);
 	public void updatePremiumUser(PremiumUser U);
 	public void updateWorldUser(WolrdUser U);
+	public void updateStatutUser(int idBasicUser);
+	public List<BasicUser> search(String user);
 
 }

@@ -28,6 +28,7 @@ public class AdminManager implements Serializable {
 	private String CITY;
 	private String password;
 	private String username;
+	private boolean isConnected;
 	private static final long serialVersionUID = 1L;
 
 	public AdminManager() {
@@ -93,6 +94,12 @@ public class AdminManager implements Serializable {
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public boolean isConnected() {
+		return isConnected;
+	}
+	public void setConnected(boolean isConnected) {
+		this.isConnected = isConnected;
 	}
    
 }

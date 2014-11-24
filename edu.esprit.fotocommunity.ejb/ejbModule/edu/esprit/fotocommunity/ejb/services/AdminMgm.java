@@ -1,22 +1,32 @@
 package edu.esprit.fotocommunity.ejb.services;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
+import javax.transaction.UserTransaction;
 
 import edu.esprit.fotocommunity.ejb.entities.AdminManager;
 import edu.esprit.fotocommunity.ejb.entities.BasicUser;
 import edu.esprit.fotocommunity.ejb.entities.PremiumUser;
 import edu.esprit.fotocommunity.ejb.entities.SuperAdmin;
+import edu.esprit.fotocommunity.ejb.intercepteur.LoggingInterceptor;
 
 /**
  * Session Bean implementation class AdminMgm
  */
 @Stateless
+@Interceptors({LoggingInterceptor.class})
+@TransactionManagement(TransactionManagementType.BEAN)
 public class AdminMgm implements AdminMgmRemote {
 
     /**
@@ -24,8 +34,9 @@ public class AdminMgm implements AdminMgmRemote {
      */
 	
 	
-	@PersistenceContext
+	@PersistenceContext 
 	EntityManager em ; 
+    public UserTransaction txt;
 	
     public AdminMgm() {
         // TODO Auto-generated constructor stub
@@ -33,9 +44,10 @@ public class AdminMgm implements AdminMgmRemote {
 
 	@Override
 	public void addAdminManager(AdminManager A) {
+      
+		((EntityManager) em).persist(A);
 		
-		em.persist(A);
-		
+	
 		
 		
 	}
@@ -48,7 +60,7 @@ public class AdminMgm implements AdminMgmRemote {
 
 	@Override
 	public List<AdminManager> findAllAdmins() {
-		return (List<AdminManager>)em.createQuery("test3").getResultList();
+		return (List<AdminManager>)em.createNamedQuery("test3").getResultList();
 
 	}
 
@@ -82,6 +94,12 @@ public class AdminMgm implements AdminMgmRemote {
 					System.out.println("ena superadmin");}
 
 		return admin;
+	}
+
+	@Override
+	public void updateAdminManager(AdminManager A) {
+		em.merge(A);
+		
 	}
 
 }

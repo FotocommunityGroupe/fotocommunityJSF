@@ -12,8 +12,9 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Category
  *
  */
-@Entity(name="tab_category")
-
+@Entity
+@NamedQuery(name="listofcategories",query="select a from Category a")
+@Table(name="tab_category")
 public class Category implements Serializable {
 
 	   

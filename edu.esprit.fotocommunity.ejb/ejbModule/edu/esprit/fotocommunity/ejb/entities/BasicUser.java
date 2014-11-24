@@ -32,12 +32,15 @@ public class BasicUser implements Serializable {
 	private String password;
 	private Date DateDeNaissance;
 	private String SEXE;
+	private String image;
+	private String code;
 	@OneToMany(mappedBy = "user")
 	private List<Comment> comments=new ArrayList<Comment>();
 	@OneToMany(mappedBy ="User")
 	private List<Reclamation> reclamations=new ArrayList<Reclamation>();
 	@OneToMany(mappedBy="user")
 	private List<Alert> alerts=new ArrayList<Alert>();
+	private boolean IsBlocked;
 	private static final long serialVersionUID = 1L;
 
 	public BasicUser() {
@@ -92,6 +95,24 @@ public class BasicUser implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public boolean isIsBlocked() {
+		return IsBlocked;
+	}
+	public void setIsBlocked(boolean isBlocked) {
+		IsBlocked = isBlocked;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 }

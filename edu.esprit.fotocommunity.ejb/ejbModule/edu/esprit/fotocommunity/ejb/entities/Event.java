@@ -11,21 +11,44 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Event
  *
  */
-@Entity(name="tab_events")
-
+@Entity
+@NamedQuery(name="ListOfEvents", query="select a from Event a")
+@Table(name="tab_events")
 public class Event implements Serializable {
 
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
+	private String Xpos;
+	 public String getXpos() {
+		return Xpos;
+	}
+	public void setXpos(String xpos) {
+		Xpos = xpos;
+	}
+	private String Ypos;
+	
+	public String getYpos() {
+		return Ypos;
+	}
+	public void setYpos(String ypos) {
+		Ypos = ypos;
+	}
 	private String PLACE;
-	private Date date;
+	private Date DATE;
+	//private String STATUT;
 	private String TOPIC;
 	private Integer NbSpeakers;
 	private Integer NbPlaces;
 	@ManyToOne
 	private Professional organizer;
+	public Professional getOrganizer() {
+		return organizer;
+	}
+	public void setOrganizer(Professional organizer) {
+		this.organizer = organizer;
+	}
 	private static final long serialVersionUID = 1L;
 
 	public Event() {
@@ -47,10 +70,10 @@ public class Event implements Serializable {
 	}   
 	  @Temporal(TemporalType.TIME)
 	public Date getDate() {
-		return date;
+		return DATE;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+		this.DATE = date;
 	}
 	public String getTOPIC() {
 		return this.TOPIC;
@@ -73,5 +96,6 @@ public class Event implements Serializable {
 	public void setNbPlaces(Integer NbPlaces) {
 		this.NbPlaces = NbPlaces;
 	}
+	
    
 }

@@ -11,8 +11,9 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Workshop
  *
  */
-@Entity(name="tab_workshops")
-
+@Entity
+@NamedQuery(name="ListOfWorkshop", query="select a from Workshop a")
+@Table(name="tab_workshops")
 public class Workshop implements Serializable {
 
 	   
@@ -22,6 +23,7 @@ public class Workshop implements Serializable {
 	private String SUBJECT;
 	private String PLACE;
 	private Date date;
+	private String state;
 	
 	@ManyToOne
 	private Professional leader;
@@ -72,6 +74,12 @@ public class Workshop implements Serializable {
 
 	public void setDESCRIPTION(String DESCRIPTION) {
 		this.DESCRIPTION = DESCRIPTION;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
    
 }

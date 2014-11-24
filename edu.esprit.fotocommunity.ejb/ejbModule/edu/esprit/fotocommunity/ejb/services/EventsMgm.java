@@ -51,4 +51,9 @@ public class EventsMgm implements EventsMgmRemote {
 		return (List<Event>)em.createNamedQuery("ListOfEvents").getResultList();
 	}
 
+	@Override
+	public void updateEvent(Event e) {
+		em.merge(e);
+	}
+
 }

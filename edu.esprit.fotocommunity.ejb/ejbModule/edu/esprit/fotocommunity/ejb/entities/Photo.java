@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -11,8 +13,9 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Photo
  *
  */
-@Entity(name="tab_photos")
-
+@Entity
+@NamedQuery(name="ListOfPhotos", query="select a from Photo a")
+@Table(name="tab_photos")
 public class Photo implements Serializable {
 
 	   
@@ -23,11 +26,36 @@ public class Photo implements Serializable {
 	
 	private String DESCRIPTION;
 	private Double PRICE;
+	private String image;
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	// clé etrangère
 	@ManyToOne
 	private Category Category;
 	@ManyToOne
 	private Amator amateur;
+	@OneToMany(mappedBy="photo")
+	private List<Vente> ventes1=new ArrayList<Vente>();
+	public List<Vente> getVentes1() {
+		return ventes1;
+	}
+	public void setVentes1(List<Vente> ventes1) {
+		this.ventes1 = ventes1;
+	}
+
+	private int note ; 
+	public Amator getAmateur() {
+		return amateur;
+	}
+	public void setAmateur(Amator amateur) {
+		this.amateur = amateur;
+	}
+
 	private Double SIZE;
 	private static final long serialVersionUID = 1L;
 
@@ -75,6 +103,12 @@ public class Photo implements Serializable {
 
 	public void setSIZE(Double SIZE) {
 		this.SIZE = SIZE;
+	}
+	public int getNote() {
+		return note;
+	}
+	public void setNote(int note) {
+		this.note = note;
 	}
    
 }

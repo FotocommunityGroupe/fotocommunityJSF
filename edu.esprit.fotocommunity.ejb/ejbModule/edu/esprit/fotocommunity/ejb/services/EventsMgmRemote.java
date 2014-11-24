@@ -11,6 +11,7 @@ public interface EventsMgmRemote {
 public void addEvent(Event e);
 public void deleteEvent(Event e);
 public Event findEvent(int IdEvent);
+public void updateEvent(Event e);
 public List<Event> findAllEvent();
 
 }

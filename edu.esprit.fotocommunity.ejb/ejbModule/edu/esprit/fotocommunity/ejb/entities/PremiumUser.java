@@ -7,6 +7,9 @@ import java.lang.Integer;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -20,6 +23,14 @@ public class PremiumUser extends BasicUser implements Serializable {
 	
 	private Integer NbPurshace;
 	private String CardNumber;
+	@OneToMany(mappedBy="premiumUser")
+	private List<Vente> ventes=new ArrayList<Vente>();
+	public List<Vente> getVentes() {
+		return ventes;
+	}
+	public void setVentes(List<Vente> ventes) {
+		this.ventes = ventes;
+	}
 	private static final long serialVersionUID = 1L;
 
 	public PremiumUser() {

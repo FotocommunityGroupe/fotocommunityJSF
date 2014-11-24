@@ -10,8 +10,9 @@ import javax.persistence.*;
  * Entity implementation class for Entity: Comment
  *
  */
-@Entity(name="tab_comments")
-
+@Entity
+@NamedQuery(name="ListOfComments", query="select a from Comment a")
+@Table(name="tab_comments")
 public class Comment implements Serializable {
 
 	   

@@ -13,5 +13,6 @@ public interface PhotosMgmRemote {
 	public Photo findPhoto(int IdPhoto);
 	public void updatePhot(Photo pic);
 	public List<Photo> findAllPhoto();
+	public List<Object[]> StatisticNote() ;
 
 }

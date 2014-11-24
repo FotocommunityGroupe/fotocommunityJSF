@@ -15,6 +15,7 @@ public class WolrdUser extends BasicUser implements Serializable {
 
 	
 	private String VisaCardNumber;
+	
 	private static final long serialVersionUID = 1L;
 
 	public WolrdUser() {

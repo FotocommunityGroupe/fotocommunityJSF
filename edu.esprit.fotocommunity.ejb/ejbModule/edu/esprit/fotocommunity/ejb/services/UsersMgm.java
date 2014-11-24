@@ -141,6 +141,32 @@ public class UsersMgm implements UsersMgmRemote {
 		return null;
 	}
 
+	@Override
+	public void updateStatutUser(int idBasicUser) {
+
+		
+		System.out.println(idBasicUser);
+		BasicUser basicuser=em.find(BasicUser.class, idBasicUser);
+		basicuser.setIsBlocked(true);
+		em.merge(basicuser);
+		
+		
+		
+		
+	}
+	@Override
+	public List<BasicUser> search(String user) {
+
+
+			Query query = em
+					.createQuery("select u from BasicUser u where u.NAME =:user");
+			query.setParameter("user", user);
+			List<BasicUser> u= (List<BasicUser>) query.getResultList();
+			
+			return u;
+		}
+
+
 
 
 

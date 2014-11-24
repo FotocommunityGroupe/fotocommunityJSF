@@ -13,7 +13,9 @@ import javax.persistence.*;
  * Entity implementation class for Entity: TeamWorkMember
  *
  */
-@Entity(name="tab_team_work_members")
+@Entity
+@NamedQuery(name="findAmators", query="select a from Amator a")
+@Table(name="tab_team_work_members")
 @DiscriminatorValue(value="Amator")
 
 public class Amator implements Serializable {
@@ -29,6 +31,7 @@ public class Amator implements Serializable {
 	private String password;
 	private Date dateNaiss;
 	private String SEXE;
+	//private boolean isBlocked;
 	@OneToMany(mappedBy = "amateur" )
 	private List<Photo> photos=new ArrayList<Photo>();
 	@OneToMany(mappedBy = "amateur" )
@@ -92,6 +95,7 @@ public class Amator implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}   
+	}
+	
    
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import edu.esprit.fotocommunity.ejb.entities.Photo;
 
@@ -55,6 +56,12 @@ public class PhotosMgm implements PhotosMgmRemote {
 	public List<Photo> findAllPhoto() {
 		// TODO Auto-generated method stub
 		return (List<Photo>) em.createNamedQuery("ListOfPhotos").getResultList();
+	}
+	
+	@Override
+	public List<Object[]> StatisticNote() {
+		Query q = em.createQuery("select avg(n.note) , n from Photo n group by Category_ID");
+		return q.getResultList();
 	}
 
 }
